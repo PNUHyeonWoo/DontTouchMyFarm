@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
 
     public void OnClickItem() // item 버튼 클릭시 호출
     {
-        StructInterface.SelectStruct = structObject;
+        StructObject.SelectStruct = structObject;
     }
 
 }

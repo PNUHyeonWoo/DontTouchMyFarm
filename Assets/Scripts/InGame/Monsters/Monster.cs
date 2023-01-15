@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public abstract class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private NightTimer timer;
+
+    public NightTimer Timer 
+    {
+        set { timer = value; }
+    }
     void Start()
     {
         
@@ -13,6 +18,9 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(timer.RemainTime <= 0)
+            Dead();
     }
+
+    abstract protected void Dead();
 }
