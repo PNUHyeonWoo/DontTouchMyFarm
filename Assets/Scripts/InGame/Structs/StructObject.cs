@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StructObject : MonoBehaviour, StructInterface
+public abstract class StructObject : MonoBehaviour
 {
+    public enum StructType 
+    { 
+        Props = 0,
+        Turret = 1,
+        Wall = 2,
+        Trap = 3
+    }
+
+    private static GameObject selectStruct; // Item 버튼으로 선택된 설치물 프리팹
+    [SerializeField]
     private long cost;
+    [SerializeField]
     private int size;
-    private Vector2 installGrid;
+    private int[] installGrid;
     public long Cost
     {
         get
@@ -17,44 +28,49 @@ public abstract class StructObject : MonoBehaviour, StructInterface
 
     public int Size
     {
-        get 
-        { 
-            return size; 
+        get
+        {
+            return size;
         }
     }
 
-    public Vector2 InstallGrid
+    public int[] InstallGrid
     {
-        get 
+        get
         {
             return installGrid;
         }
-        set 
+        set
         {
             installGrid = value;
         }
     }
 
-    void Start()
+    public static GameObject SelectStruct
     {
-        
+        get { return selectStruct; }
+        set { selectStruct = value; }
     }
 
 
-    void Update()
+    public static StructObject GetStructComponent() 
     {
-        
+        return selectStruct.GetComponent<StructObject>();
     }
 
-    public void CreateStruct(Transform parent, Vector3 position, Vector2 installGrid) 
+    public static void CreateStruct(Transform parent, Vector3 position, int[] installGrid) // selectStruct 프리팹으로 설치물 생성
     {
-        GameObject newObj = Instantiate(gameObject);
+        GameObject newObj = Instantiate(selectStruct);
         newObj.transform.position = position;
         newObj.transform.SetParent(parent);
         newObj.GetComponent<StructObject>().InstallGrid = installGrid;
     }
-    public GameObject GetGameObject() 
+    public abstract StructType GetStructType();
+    public abstract void UpdateDay(int day); //다음날로 넘어갈 때 Day에서 각 설치물에서 호출해주는 메소드
+
+    protected bool PlusMoney(long money) 
     {
-        return gameObject;
+        return TopUI.topUI.PlusMoney(money);
     }
+
 }
