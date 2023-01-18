@@ -18,6 +18,8 @@ public abstract class StructObject : MonoBehaviour
     [SerializeField]
     private int size;
     private int[] installGrid;
+
+    private float HP;
     public long Cost
     {
         get
@@ -66,6 +68,18 @@ public abstract class StructObject : MonoBehaviour
         newObj.GetComponent<StructObject>().InstallGrid = installGrid;
     }
     public abstract StructType GetStructType();
+    protected virtual void Dead() 
+    { 
+        Destroy(gameObject);
+    }
+
+    public float AddHP(float value)
+    {
+        HP += value;
+        if (HP <= 0)
+            Dead();
+        return HP;
+    }
     public abstract void UpdateDay(int day); //다음날로 넘어갈 때 Day에서 각 설치물에서 호출해주는 메소드
 
     protected bool PlusMoney(long money) 
