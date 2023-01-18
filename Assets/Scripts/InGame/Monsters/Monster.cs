@@ -6,6 +6,8 @@ public abstract class Monster : MonoBehaviour
 {
     private NightTimer timer;
 
+    private float HP;
+
     public NightTimer Timer 
     {
         set { timer = value; }
@@ -22,5 +24,16 @@ public abstract class Monster : MonoBehaviour
             Dead();
     }
 
-    abstract protected void Dead();
+    public float AddHP(float value)
+    {
+        HP += value;
+        if (HP <= 0)
+            Dead();
+        return HP;
+    }
+
+    virtual protected void Dead() 
+    { 
+        Destroy(gameObject);
+    }
 }
