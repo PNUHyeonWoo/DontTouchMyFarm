@@ -9,7 +9,8 @@ public abstract class StructObject : MonoBehaviour
         Props = 0,
         Turret = 1,
         Wall = 2,
-        Trap = 3
+        Trap = 3,
+        House = 4
     }
 
     private static GameObject selectStruct; // Item 버튼으로 선택된 설치물 프리팹
@@ -19,8 +20,13 @@ public abstract class StructObject : MonoBehaviour
     private int size;
     private int[] installGrid;
 
+    [SerializeField]
+    private float maxHP;
     private float HP;
+    [SerializeField]
     private float defence;
+    [SerializeField]
+    private float healAmount;
     public long Cost
     {
         get
@@ -70,8 +76,8 @@ public abstract class StructObject : MonoBehaviour
     }
     public abstract StructType GetStructType();
     protected virtual void Dead() 
-    { 
-        Destroy(gameObject);
+    {
+        Ground.ground.DestroyStruct(this);
     }
 
     public float AddHP(float value)
@@ -87,11 +93,20 @@ public abstract class StructObject : MonoBehaviour
             Dead();
         return HP;
     }
-    public abstract void UpdateDay(int day); //다음날로 넘어갈 때 Day에서 각 설치물에서 호출해주는 메소드
+    public virtual void UpdateDay(int day) 
+    {
+        HP += healAmount;
+        HP = HP > maxHP ? maxHP: HP;
+    } //다음날로 넘어갈 때 Day에서 각 설치물에서 호출해주는 메소드
 
     protected bool PlusMoney(long money) 
     {
         return TopUI.topUI.PlusMoney(money);
+    }
+
+    private void Start()
+    {
+        HP = maxHP;
     }
 
 }
