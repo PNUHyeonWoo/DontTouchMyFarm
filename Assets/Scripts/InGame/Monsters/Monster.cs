@@ -6,6 +6,8 @@ public abstract class Monster : MonoBehaviour
 {
     private NightTimer timer;
 
+    [SerializeField]
+    private float maxHP;
     private float HP;
 
     public NightTimer Timer 
@@ -14,7 +16,7 @@ public abstract class Monster : MonoBehaviour
     }
     void Start()
     {
-        
+        HP = maxHP;
     }
 
     // Update is called once per frame
@@ -29,6 +31,8 @@ public abstract class Monster : MonoBehaviour
         HP += value;
         if (HP <= 0)
             Dead();
+        if(HP > maxHP)
+            HP = maxHP;
         return HP;
     }
 
