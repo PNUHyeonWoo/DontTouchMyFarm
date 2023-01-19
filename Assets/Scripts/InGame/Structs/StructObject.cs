@@ -20,6 +20,7 @@ public abstract class StructObject : MonoBehaviour
     private int[] installGrid;
 
     private float HP;
+    private float defence;
     public long Cost
     {
         get
@@ -75,6 +76,12 @@ public abstract class StructObject : MonoBehaviour
 
     public float AddHP(float value)
     {
+        if (value < 0)
+        {
+            value += defence;
+            value = value > 0 ? 0 : value;
+        }
+
         HP += value;
         if (HP <= 0)
             Dead();
