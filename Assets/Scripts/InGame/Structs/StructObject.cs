@@ -104,7 +104,7 @@ public abstract class StructObject : MonoBehaviour
         return TopUI.topUI.PlusMoney(money);
     }
 
-    private void Start()
+    protected void Start()
     {
         HP = maxHP;
     }
