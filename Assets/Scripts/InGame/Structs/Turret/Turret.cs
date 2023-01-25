@@ -41,8 +41,8 @@ public abstract class Turret :StructObject
         base.Dead();
     }
 
-    protected abstract void Attack();
-    private void FindTarget() 
+    protected abstract void Attack(); // 각 터렛에서 공격 방식 구현
+    private void FindTarget() //공격 사거리 내의 몬스터를 찾아 타겟으로 설정
     {
         if (target == null || Vector2.Distance(
                         new Vector2(target.transform.position.x, target.transform.position.z),
