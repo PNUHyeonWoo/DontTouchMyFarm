@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class TestMonster : Monster
 {
-
+    void Update() 
+    {
+        return;
+    }
 }
