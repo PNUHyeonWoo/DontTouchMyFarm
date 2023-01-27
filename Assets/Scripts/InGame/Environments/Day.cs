@@ -1,10 +1,22 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Day : MonoBehaviour
 {
-    private const float NIGHT_TIME = 120.0f; //밤 지속 시간 상수
+    [SerializeField]
+    private float NIGHT_TIME = 120.0f; //밤 지속 시간 상수
+    [SerializeField]
+    static private int[] SEASON_DAYS = {5,5,5,5}; //계절 지속 일 상수 봄, 여름, 가을, 겨울
+
+    enum Season
+    {
+        Spring = 0,
+        Summer = 1,
+        Fall = 2,
+        Winter = 3
+    }
 
     private NightTimer nightTimer;
     private GameObject bottomUI;
@@ -42,5 +54,19 @@ public class Day : MonoBehaviour
         foreach (GameObject st in structs)
             st.GetComponent<StructObject>().UpdateDay(days);
     }
+
+    static Season GetSeason(int days) 
+    {
+        days = (days - 1) % SEASON_DAYS.Sum();
+        int tmpSum = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            tmpSum += SEASON_DAYS[i];
+            if (days < tmpSum)
+                return (Season)i;
+        }
+        return (Season)0;
+    } 
+
 
 }
