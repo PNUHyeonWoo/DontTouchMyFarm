@@ -25,6 +25,13 @@ public class UserControl : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
                 RightClickAction();
 
+            if (Input.GetKey(KeyCode.LeftArrow))
+                RotateCamera(-Time.deltaTime);
+            if (Input.GetKey(KeyCode.RightArrow))
+                RotateCamera(Time.deltaTime);
+                
+                
+
             UpdateInstallFloor();
 
         }
@@ -97,5 +104,19 @@ public class UserControl : MonoBehaviour
             }
 
         installFloor.SetActive(false);
+    }
+
+    void RotateCamera(float r) 
+    {
+        Vector3 lookAt = Camera.main.transform.rotation * Vector3.forward + Camera.main.transform.position;
+        float x = Camera.main.transform.position.x;
+        float y = Camera.main.transform.position.y;
+        float z = Camera.main.transform.position.z;
+        Camera.main.transform.position = new Vector3((float)(x * Math.Cos(r) - z * Math.Sin(r)), y ,(float)(x * Math.Sin(r) + z * Math.Cos(r)));
+        x = lookAt.x;
+        y = lookAt.y;
+        z = lookAt.z;
+        lookAt = new Vector3((float)(x * Math.Cos(r) - z * Math.Sin(r)), y,(float)(x * Math.Sin(r) + z * Math.Cos(r)));
+        Camera.main.transform.LookAt(lookAt);
     }
 }
