@@ -24,14 +24,7 @@ public class UserControl : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
                 RightClickAction();
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-                RotateCamera(-Time.deltaTime);
-            if (Input.GetKey(KeyCode.RightArrow))
-                RotateCamera(Time.deltaTime);
-                
-                
-
+                         
             UpdateInstallFloor();
 
         }
@@ -39,6 +32,11 @@ public class UserControl : MonoBehaviour
         { 
             installFloor.SetActive(false);
         }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+            RotateCamera(-Time.deltaTime);
+        if (Input.GetKey(KeyCode.RightArrow))
+            RotateCamera(Time.deltaTime);
     }
 
 
@@ -56,9 +54,12 @@ public class UserControl : MonoBehaviour
         foreach (RaycastHit hit in hits)
             if (hit.transform.GetComponent<Ground>())
             {
-                Ground.ground.InstallSelectStruct(new Vector2(hit.point.x, hit.point.z)); //ground에 적중시 해당 위치에 설치물 설치
-                break;
+                if (!Ground.ground.InstallSelectStruct(new Vector2(hit.point.x, hit.point.z)))//ground에 적중시 해당 위치에 설치물 설치
+                    TopUI.topUI.PlusMoney(StructObject.GetStructComponent().Cost);
+                return;
             }
+
+        TopUI.topUI.PlusMoney(StructObject.GetStructComponent().Cost);
     }
 
     void RightClickAction()
