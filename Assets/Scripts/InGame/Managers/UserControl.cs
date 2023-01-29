@@ -24,7 +24,7 @@ public class UserControl : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
                 RightClickAction();
-
+                         
             UpdateInstallFloor();
 
         }
@@ -32,6 +32,11 @@ public class UserControl : MonoBehaviour
         { 
             installFloor.SetActive(false);
         }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+            RotateCamera(-Time.deltaTime);
+        if (Input.GetKey(KeyCode.RightArrow))
+            RotateCamera(Time.deltaTime);
     }
 
 
@@ -49,9 +54,12 @@ public class UserControl : MonoBehaviour
         foreach (RaycastHit hit in hits)
             if (hit.transform.GetComponent<Ground>())
             {
-                Ground.ground.InstallSelectStruct(new Vector2(hit.point.x, hit.point.z)); //ground에 적중시 해당 위치에 설치물 설치
-                break;
+                if (!Ground.ground.InstallSelectStruct(new Vector2(hit.point.x, hit.point.z)))//ground에 적중시 해당 위치에 설치물 설치
+                    TopUI.topUI.PlusMoney(StructObject.GetStructComponent().Cost);
+                return;
             }
+
+        TopUI.topUI.PlusMoney(StructObject.GetStructComponent().Cost);
     }
 
     void RightClickAction()
@@ -97,5 +105,19 @@ public class UserControl : MonoBehaviour
             }
 
         installFloor.SetActive(false);
+    }
+
+    void RotateCamera(float r) 
+    {
+        Vector3 lookAt = Camera.main.transform.rotation * Vector3.forward + Camera.main.transform.position;
+        float x = Camera.main.transform.position.x;
+        float y = Camera.main.transform.position.y;
+        float z = Camera.main.transform.position.z;
+        Camera.main.transform.position = new Vector3((float)(x * Math.Cos(r) - z * Math.Sin(r)), y ,(float)(x * Math.Sin(r) + z * Math.Cos(r)));
+        x = lookAt.x;
+        y = lookAt.y;
+        z = lookAt.z;
+        lookAt = new Vector3((float)(x * Math.Cos(r) - z * Math.Sin(r)), y,(float)(x * Math.Sin(r) + z * Math.Cos(r)));
+        Camera.main.transform.LookAt(lookAt);
     }
 }

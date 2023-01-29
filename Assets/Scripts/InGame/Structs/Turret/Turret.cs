@@ -15,6 +15,9 @@ public abstract class Turret :StructObject
     protected float attackCoolTime=0;
 
     protected Monster target = null;
+
+    private static float findMaxCoolTime = 0.1f;
+    private float findCoolTime = 0.1f;
     new void Start()
     {
         base.Start();
@@ -44,12 +47,19 @@ public abstract class Turret :StructObject
     protected abstract void Attack(); // 각 터렛에서 공격 방식 구현
     private void FindTarget() //공격 사거리 내의 몬스터를 찾아 타겟으로 설정
     {
-        if (target == null || Vector2.Distance(
+        if(target && Vector2.Distance(
                         new Vector2(target.transform.position.x, target.transform.position.z),
                         new Vector2(transform.position.x, transform.position.z)) > attackRange)
-        {
             target = null;
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, attackRange,Vector2.up,0);
+
+
+        if(findCoolTime > 0)
+            findCoolTime -= Time.deltaTime;
+
+        if (findCoolTime <= 0 && target == null)
+        {
+            int layerMask = 1 << LayerMask.NameToLayer("Monster");
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, attackRange,Vector2.up,0,layerMask);
             foreach (RaycastHit hit in hits)
             {
                 Monster mHit = hit.transform.GetComponent<Monster>();
@@ -62,6 +72,7 @@ public abstract class Turret :StructObject
                     return;
                 }
             }
+            findCoolTime = findMaxCoolTime;
         }
     }
 }

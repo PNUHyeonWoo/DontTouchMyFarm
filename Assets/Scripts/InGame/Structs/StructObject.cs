@@ -73,6 +73,7 @@ public abstract class StructObject : MonoBehaviour
         newObj.transform.position = position;
         newObj.transform.SetParent(parent);
         newObj.GetComponent<StructObject>().InstallGrid = installGrid;
+        newObj.layer = LayerMask.NameToLayer("Struct");
     }
     public abstract StructType GetStructType();
     protected virtual void Dead() 
