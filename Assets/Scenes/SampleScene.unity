@@ -435,7 +435,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 17464812}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9991972
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test
+  m_text: TCrop1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1808,7 +1808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000048821264}
+  m_AnchoredPosition: {x: 0, y: 0.00031375577}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &302796595
@@ -2230,7 +2230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test
+  m_text: TCrop2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4929,7 +4929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test
+  m_text: TWall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 1237054517}
   m_Layer: 5
   m_Name: TestButton
-  m_TagString: Untagged
+  m_TagString: Struct
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5153,7 +5153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5523f41382cc64aacb431fb1cf8b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structObject: {fileID: 998613733476095315, guid: dbf3a3cda4837d146acb92b79952c0e6, type: 3}
+  structObject: {fileID: 998613733476095315, guid: eb120aeb751ea124e961373ce937acac, type: 3}
 --- !u!1 &1270723713
 GameObject:
   m_ObjectHideFlags: 0
