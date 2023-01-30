@@ -6,7 +6,7 @@ public abstract class StructObject : MonoBehaviour
 {
     public enum StructType 
     { 
-        Props = 0,
+        Crops = 0,
         Turret = 1,
         Wall = 2,
         Trap = 3,
