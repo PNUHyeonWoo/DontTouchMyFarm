@@ -8,4 +8,15 @@ public class TestMonster : Monster
     {
         return;
     }
+
+    protected override void AttackCheck()
+    {
+        
+    }
+
+    protected override void Move()
+    {
+        
+    }
 }
+
