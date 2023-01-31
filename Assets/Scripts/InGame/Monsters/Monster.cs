@@ -4,40 +4,99 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
-    private NightTimer timer;
+    private bool isAttack = false;
+    private float initAttackDelay = 100;
+    private float attackDelay;
+    
+    [SerializeField]
+    protected GameObject target;
+    [SerializeField]
+    protected GameObject attackTarget = null;
 
     [SerializeField]
-    private float maxHP;
-    private float HP;
+    protected int[] priority;
+    [SerializeField]
+    protected float sight;
+    [SerializeField]
+    protected float attackRange;
+    [SerializeField]
+    protected float maxHP;
+    protected float HP;
+    [SerializeField]
+    protected float attackSpeed;
+    [SerializeField]
+    protected float attackDamage;
 
-    public NightTimer Timer 
-    {
+    /*
+    private NightTimer timer;
+
+    public NightTimer Timer {
         set { timer = value; }
     }
-    void Start()
-    {
+    */
+
+    protected virtual void Start() {
         HP = maxHP;
+        attackDelay = initAttackDelay;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(timer.RemainTime <= 0)
+    private void Update() {
+        /*
+        if(timer.RemainTime <= 0) {
             Dead();
+        }
+        */
+
+        AttackCheck();
+
+        if (isAttack) {
+            Attack();
+        }
+        else {
+            Move();
+        }
     }
 
-    public float AddHP(float value)
-    {
+    protected abstract void AttackCheck();
+
+    protected abstract void Move();
+
+    protected void Attack() {
+        attackDelay += Time.deltaTime;
+
+        if (attackDelay > attackSpeed) {
+            attackDelay = 0;
+
+            if (attackTarget == null) {
+                AttackEnd();
+            }
+            else {
+                attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
+            }
+        }
+    }
+
+    protected virtual void AttackEnd() {
+        isAttack = false;
+        attackDelay = initAttackDelay;
+    }
+
+    protected virtual void AttackStart() {
+        isAttack = true;
+    }
+
+    public float AddHP(float value) {
         HP += value;
-        if (HP <= 0)
+        if (HP <= 0) {
             Dead();
-        if(HP > maxHP)
+        }
+        if(HP > maxHP) {
             HP = maxHP;
+        }
         return HP;
     }
 
-    virtual protected void Dead() 
-    { 
+    protected virtual void Dead() { 
         Destroy(gameObject);
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UI
   - Struct
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -13,6 +14,7 @@ TagManager:
   - 
   - Water
   - UI
+  - 
   - Monster
   - Struct
   - 
