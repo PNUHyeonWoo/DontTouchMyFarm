@@ -6,7 +6,7 @@ public abstract class StructObject : MonoBehaviour
 {
     public enum StructType 
     { 
-        Props = 0,
+        Crops = 0,
         Turret = 1,
         Wall = 2,
         Trap = 3,
@@ -73,6 +73,7 @@ public abstract class StructObject : MonoBehaviour
         newObj.transform.position = position;
         newObj.transform.SetParent(parent);
         newObj.GetComponent<StructObject>().InstallGrid = installGrid;
+        newObj.layer = LayerMask.NameToLayer("Struct");
     }
     public abstract StructType GetStructType();
     protected virtual void Dead() 
@@ -104,7 +105,7 @@ public abstract class StructObject : MonoBehaviour
         return TopUI.topUI.PlusMoney(money);
     }
 
-    private void Start()
+    protected void Start()
     {
         HP = maxHP;
     }

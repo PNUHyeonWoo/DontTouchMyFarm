@@ -90,6 +90,9 @@ public abstract class Monster : MonoBehaviour
         if (HP <= 0) {
             Dead();
         }
+        if(HP > maxHP) {
+            HP = maxHP;
+        }
         return HP;
     }
 
