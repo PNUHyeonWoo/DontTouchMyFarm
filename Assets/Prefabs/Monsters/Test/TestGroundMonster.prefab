@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3649291099518844032}
   - component: {fileID: 6362076174942679463}
   - component: {fileID: 8083913155966171030}
-  m_Layer: 0
+  - component: {fileID: 1619961170086799939}
+  m_Layer: 7
   m_Name: TestGroundMonster
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -104,7 +105,7 @@ MonoBehaviour:
   attackRange: 10
   maxHP: 100
   attackSpeed: 1
-  attackDamage: 3
+  attackDamage: 50
   attackPriority: 1
   movePriority: 2
   rangeOffset: 0.8
@@ -130,3 +131,16 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1619961170086799939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487054684918970750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
