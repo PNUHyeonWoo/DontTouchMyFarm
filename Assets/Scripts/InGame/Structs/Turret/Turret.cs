@@ -59,8 +59,8 @@ public abstract class Turret :StructObject
         if (findCoolTime <= 0 && target == null)
         {
             int layerMask = 1 << LayerMask.NameToLayer("Monster");
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, attackRange,Vector2.up,0,layerMask);
-            foreach (RaycastHit hit in hits)
+            Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, layerMask);
+            foreach (Collider hit in hits)
             {
                 Monster mHit = hit.transform.GetComponent<Monster>();
                 if (mHit && 
