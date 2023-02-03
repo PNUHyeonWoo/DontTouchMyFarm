@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -74,7 +75,12 @@ public class MonsterSpawner : MonoBehaviour
                 for (int i = 0; i < spawns.amount; i++)
                 { 
                     GameObject spawnMonster = Instantiate(spawns.monster);
-                    spawnMonster.transform.position = spawnPositions[side].position;
+                    if(spawnMonster.GetComponent<NavMeshAgent>())
+                        spawnMonster.GetComponent<NavMeshAgent>().Warp(spawnPositions[side].position);
+                    else if(spawnMonster.GetComponent<Rigidbody>())
+                        spawnMonster.GetComponent<Rigidbody>().position = spawnPositions[side].position;
+                    else
+                        spawnMonster.transform.position = spawnPositions[side].position;
                 }
 
         Monster.totalAmount = todaySpawn.GetTotalAmount();
