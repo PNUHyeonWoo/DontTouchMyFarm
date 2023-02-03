@@ -20,6 +20,8 @@ public class Day : MonoBehaviour
     [SerializeField]
     private Light sunLight;
 
+    private MonsterSpawner monsterSpawner;
+
     public enum Season
     {
         Spring = 0,
@@ -33,9 +35,12 @@ public class Day : MonoBehaviour
     private GameObject ground;
     private bool isNight = false;
     private int days = 1; // 현재 일수
+
+
     void Start()
     {
         nightTimer = gameObject.GetComponent<NightTimer>();
+        monsterSpawner = gameObject.GetComponent<MonsterSpawner>();
         nightTimer.TimerText = timerUI.transform.GetComponentInChildren<TMP_Text>();
         bottomUI = GameObject.Find("BottomUI");
         ground = GameObject.Find("Ground");
@@ -44,8 +49,12 @@ public class Day : MonoBehaviour
 
     void Update()
     {
+        if (isNight && Monster.totalAmount <= 0)
+            nightTimer.RemainTime = 0;
+
         if (isNight && nightTimer.RemainTime <= 0)
         {
+            KillAllMonster();
             isNight = false;
             UpdateDay(); 
         }
@@ -61,7 +70,7 @@ public class Day : MonoBehaviour
 
         sunLight.intensity = 0.2f;
 
-        //몬스터 소환
+        monsterSpawner.SpawnMonster(days);
     }
 
     void UpdateDay() //밤이 끝나고 다음날이 될때 호출
@@ -90,7 +99,15 @@ public class Day : MonoBehaviour
                 return (Season)i;
         }
         return (Season)0;
-    } 
+    }
+
+    private void KillAllMonster() 
+    {
+        foreach (GameObject monster in GameObject.FindGameObjectsWithTag("Monster"))
+            monster.GetComponent<Monster>().Dead();
+
+        Monster.totalAmount = 0;
+    }
 
 
 }

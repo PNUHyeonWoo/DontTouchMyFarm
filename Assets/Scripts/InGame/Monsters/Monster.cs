@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
+    public static int totalAmount = 0;
+
     private bool isAttack = false;
     private float initAttackDelay = 100;
     private float attackDelay;
@@ -96,7 +98,12 @@ public abstract class Monster : MonoBehaviour
         return HP;
     }
 
-    protected virtual void Dead() { 
+    public virtual void Dead() {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        totalAmount--;
     }
 }

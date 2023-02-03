@@ -24,8 +24,8 @@ public class DeadBoomTrap : Trap
     protected override void Dead() // SphereCast로 attackRange내의 적 모두 데미지 주고 폭팔 이펙트 생성
     {
         int layerMask = 1 << LayerMask.NameToLayer("Monster");
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, attackRange, Vector2.up, 0,layerMask);
-        foreach (RaycastHit hit in hits)
+        Collider[] hits = Physics.OverlapSphere(transform.position, attackRange,layerMask);
+        foreach (Collider hit in hits)
         {
             Monster mHit = hit.transform.GetComponent<Monster>();
             if (mHit)
