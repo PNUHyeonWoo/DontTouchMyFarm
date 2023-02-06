@@ -77,8 +77,8 @@ public class MonsterSpawner : MonoBehaviour
                     GameObject spawnMonster = Instantiate(spawns.monster);
                     if(spawnMonster.GetComponent<NavMeshAgent>())
                         spawnMonster.GetComponent<NavMeshAgent>().Warp(spawnPositions[side].position);
-                    else if(spawnMonster.GetComponent<Rigidbody>())
-                        spawnMonster.GetComponent<Rigidbody>().position = spawnPositions[side].position;
+                    //else if(spawnMonster.GetComponent<Rigidbody>())
+                        //spawnMonster.GetComponent<Rigidbody>().position = spawnPositions[side].position;
                     else
                         spawnMonster.transform.position = spawnPositions[side].position;
                 }
