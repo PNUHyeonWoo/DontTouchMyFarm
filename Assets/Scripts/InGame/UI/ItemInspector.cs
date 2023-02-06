@@ -10,7 +10,7 @@ public class ItemInspector : MonoBehaviour
     {
         RectTransform rt = GetComponent<RectTransform>();
         Vector2 mosPos = Input.mousePosition;
-        rt.position = new Vector3(mosPos.x - rt.sizeDelta.x/2 - 3,mosPos.y + rt.sizeDelta.y/2, 0);
+        rt.position = new Vector3(mosPos.x - rt.sizeDelta.x/2,mosPos.y + rt.sizeDelta.y/2, 0);
 
     }
 }
