@@ -12,6 +12,21 @@ public class Crops : StructObject
     [SerializeField]
     private long saleCost;
 
+    public float MaxGrowth 
+    { 
+        get { return maxGrowth; }
+    }
+
+    public float[] SeasonGrowth
+    {
+        get { return seasonGrowth; }
+    }
+
+    public long SaleCost 
+    {
+        get { return saleCost; }
+    }
+
     public override StructType GetStructType()
     {
         return StructType.Crops;

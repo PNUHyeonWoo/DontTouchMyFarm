@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class StructObject : MonoBehaviour
 {
-    public enum StructType 
-    { 
+    public enum StructType
+    {
         Crops = 0,
         Turret = 1,
         Wall = 2,
@@ -53,6 +53,21 @@ public abstract class StructObject : MonoBehaviour
         {
             installGrid = value;
         }
+    }
+
+    public float MaxHP
+    {
+        get { return maxHP; }
+    }
+
+    public float Defence
+    {
+        get { return defence; }
+    }
+
+    public float HealAmount
+    {
+        get { return healAmount; }
     }
 
     public static GameObject SelectStruct

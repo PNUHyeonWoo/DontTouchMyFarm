@@ -11,6 +11,16 @@ public class DeadBoomTrap : Trap
     [SerializeField]
     private GameObject ExplosionEffect;
 
+    public float AttackPower
+    { 
+        get { return attackPower; }
+    }
+
+    public float AttackRange
+    { 
+        get { return attackRange; }
+    }
+
     /* ÆøÆÈ Å×½ºÆ®¿ë
     private void Update()
     {

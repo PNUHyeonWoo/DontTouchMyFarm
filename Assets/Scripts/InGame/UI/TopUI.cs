@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TopUI : MonoBehaviour
@@ -48,6 +49,11 @@ public class TopUI : MonoBehaviour
         }    
         else
             return false;
+    }
+
+    public void ToMenu() 
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 
 }
