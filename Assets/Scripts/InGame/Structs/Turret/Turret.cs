@@ -11,6 +11,21 @@ public abstract class Turret :StructObject
     [SerializeField]
     protected float attackRange;
 
+    public float AttackPower
+    { 
+        get { return attackPower; }
+    }
+
+    public float AttackSpeed    
+    { 
+        get { return attackSpeed; }
+    }
+
+    public float AttackRange
+    {
+        get { return attackRange; }
+    }
+
     protected float attackMaxCoolTime;
     protected float attackCoolTime=0;
 
