@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8824613283063777552}
   - component: {fileID: 129864451628186430}
   - component: {fileID: 7023659102400631592}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Shotgun
   m_TagString: Struct
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7aacc197e7c0c3146b9c3c258e80618e, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aacc197e7c0c3146b9c3c258e80618e, type: 3}

@@ -98,9 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b676c000ead3dff4c9bad5b01301b2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   attackTarget: {fileID: 0}
-  priority: 0100000002000000040000000500000003000000
+  priority:
+  - Crop
+  - Turret
+  - Wall
+  - House
   sight: 20
   attackRange: 10
   maxHP: 100

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5854989891762001949}
   - component: {fileID: 5061333211195749348}
   - component: {fileID: 8757406895665343194}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: BrickWall
   m_TagString: Struct
   m_Icon: {fileID: 0}
@@ -135,13 +135,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -1807970279642858887, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -1660384031183063813, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -574481285297466902, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
       propertyPath: m_Name
       value: BrickWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3774608951414501026, guid: 837339c5b8c4b614aa9944acb4d75039, type: 3}
       propertyPath: m_LocalRotation.w
