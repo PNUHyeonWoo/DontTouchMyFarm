@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1958218119612095708}
   - component: {fileID: 7274238846184938902}
   - component: {fileID: 4341701092996872226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestCrop2
   m_TagString: Struct
   m_Icon: {fileID: 0}

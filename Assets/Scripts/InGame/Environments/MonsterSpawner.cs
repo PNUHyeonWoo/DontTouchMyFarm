@@ -80,7 +80,7 @@ public class MonsterSpawner : MonoBehaviour
                     //else if(spawnMonster.GetComponent<Rigidbody>())
                         //spawnMonster.GetComponent<Rigidbody>().position = spawnPositions[side].position;
                     else
-                        spawnMonster.transform.position = spawnPositions[side].position;
+                        spawnMonster.transform.position = new Vector3(spawnPositions[side].position.x, spawnMonster.transform.position.y, spawnPositions[side].position.z);
                 }
 
         Monster.totalAmount = todaySpawn.GetTotalAmount();

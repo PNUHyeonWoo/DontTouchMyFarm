@@ -11,12 +11,10 @@ public abstract class Monster : MonoBehaviour
     private float attackDelay;
     
     [SerializeField]
-    protected GameObject target;
-    [SerializeField]
     protected GameObject attackTarget = null;
 
     [SerializeField]
-    protected int[] priority;
+    protected string[] priority;
     [SerializeField]
     protected float sight;
     [SerializeField]

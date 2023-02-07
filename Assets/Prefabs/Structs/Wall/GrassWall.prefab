@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5854989891762001949}
   - component: {fileID: 5061333211195749348}
   - component: {fileID: 8757406895665343194}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: GrassWall
   m_TagString: Struct
   m_Icon: {fileID: 0}
@@ -122,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 44d4fa87f5ea354478f111dc50ec15db, type: 3}
       propertyPath: m_Name
       value: GrassWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44d4fa87f5ea354478f111dc50ec15db, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d4fa87f5ea354478f111dc50ec15db, type: 3}

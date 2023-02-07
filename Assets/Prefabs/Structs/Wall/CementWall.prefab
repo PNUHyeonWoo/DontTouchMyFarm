@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5854989891762001949}
   - component: {fileID: 5061333211195749348}
   - component: {fileID: 8757406895665343194}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: CementWall
   m_TagString: Struct
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2d168c2789e91ad4dba1fd8e802692e7, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d168c2789e91ad4dba1fd8e802692e7, type: 3}

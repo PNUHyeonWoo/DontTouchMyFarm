@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5854989891762001949}
   - component: {fileID: 8757406895665343194}
   - component: {fileID: 8510592978168203810}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Grape
   m_TagString: Struct
   m_Icon: {fileID: 0}
@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grape0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 04ab85ffa328b6a468251e92c898e35f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04ab85ffa328b6a468251e92c898e35f, type: 3}
 --- !u!4 &937756559293757812 stripped
@@ -198,6 +202,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 756c214be94cefa419b80f0cdc314fe4, type: 3}
       propertyPath: m_Name
       value: DirtGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 756c214be94cefa419b80f0cdc314fe4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756c214be94cefa419b80f0cdc314fe4, type: 3}
@@ -283,6 +291,10 @@ PrefabInstance:
       value: Grape1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 73f244eda44b62741884c0365117ac50, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 73f244eda44b62741884c0365117ac50, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -351,6 +363,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 558e7612ccd85fc44bb8c03119cc84a5, type: 3}
       propertyPath: m_Name
       value: Grape2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 558e7612ccd85fc44bb8c03119cc84a5, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 558e7612ccd85fc44bb8c03119cc84a5, type: 3}
       propertyPath: m_IsActive

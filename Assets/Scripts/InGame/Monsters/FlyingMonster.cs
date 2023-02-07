@@ -30,34 +30,26 @@ public class FlyingMonster : Monster
 
     protected override void Move()
     {
-        RaycastHit[] sightHit = Physics.SphereCastAll(transform.position, sight, Vector3.up, 0f, LayerMask.GetMask("Struct"));
+        for (int i = 0; i < priority.Length; i++) {
+            RaycastHit[] sightHit = Physics.SphereCastAll(transform.position, sight, Vector3.up, 0f, LayerMask.GetMask(priority[i]));
 
-        for (int i = 0; i < sightHit.Length; i++) {
-            if (attackTarget == null) {
-                attackTarget = sightHit[i].collider.gameObject;
-            }
-
-            else if (priority[(int)sightHit[i].collider.GetComponent<StructObject>().GetStructType()] < priority[(int)attackTarget.GetComponent<StructObject>().GetStructType()]) {
-                attackTarget = sightHit[i].collider.gameObject;
+            if (sightHit.Length != 0) {
+                attackTarget = sightHit[0].collider.gameObject;
+                break;
             }
         }
 
         Vector3 destination = new Vector3();
 
-        if (attackTarget != null || target != null) {
-            if (attackTarget != null) {
-                destination = attackTarget.transform.position;
-            }
-            else {
-                destination = target.transform.position;
-            }
-
-            destination.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destination - transform.position), rotationSpeed * Time.deltaTime);
+        if (attackTarget != null) {
+            destination = attackTarget.transform.position;
         }
         else {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationSpeed * Time.deltaTime);
+            destination = Vector3.zero;
         }
+
+        destination.y = transform.position.y;
+        transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destination - transform.position), rotationSpeed * Time.deltaTime);
     }
 }

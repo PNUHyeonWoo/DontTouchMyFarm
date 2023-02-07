@@ -33,31 +33,29 @@ public class GroundMonster : Monster
     }
 
     protected override void Move() {
-        RaycastHit[] sightHit = Physics.SphereCastAll(transform.position, sight, Vector3.up, 0f, LayerMask.GetMask("Struct"));
+        if (attackTarget == null) {
+            for (int i = 0; i < priority.Length; i++) {
+                RaycastHit[] sightHit = Physics.SphereCastAll(transform.position, sight, Vector3.up, 0f, LayerMask.GetMask(priority[i]));
 
-        for (int i = 0; i < sightHit.Length; i++) {
-            agent.CalculatePath(sightHit[i].transform.position, path);
-            agent.SetPath(path);
+                for (int j = 0; j < sightHit.Length; j++) {
+                    agent.CalculatePath(sightHit[j].transform.position, path);
+                    agent.SetPath(path);
 
-            if (Vector3.Distance(sightHit[i].collider.transform.position, agent.pathEndPosition) < attackRange + (sightHit[i].collider.transform.lossyScale.x * rangeOffset)) {
-                if (attackTarget == null) {
-                    attackTarget = sightHit[i].collider.gameObject;
+                    if (Vector3.Distance(sightHit[j].collider.transform.position, agent.pathEndPosition) < attackRange + (sightHit[j].collider.transform.lossyScale.x * rangeOffset)) {
+                        attackTarget = sightHit[j].collider.gameObject;
+                        break;
+                    }
                 }
-    
-                else if (priority[(int)sightHit[i].collider.GetComponent<StructObject>().GetStructType()] < priority[(int)attackTarget.GetComponent<StructObject>().GetStructType()]) {
-                    attackTarget = sightHit[i].collider.gameObject;
+
+                if (attackTarget != null) {
+                    break;
                 }
             }
-        }
 
-        if (attackTarget == null && target != null) {
-            agent.CalculatePath(target.transform.position, path);
-            agent.SetPath(path);
-        }
-        else if (attackTarget != null) {
-            agent.CalculatePath(attackTarget.transform.position, path);
-            agent.SetPath(path);
-            Debug.Log(path.status);
+            if (attackTarget == null) {
+                agent.CalculatePath(new Vector3(0, transform.position.y, 0), path);
+                agent.SetPath(path);
+            }
         }
     }
 
