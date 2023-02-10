@@ -15,6 +15,8 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (!Day.day.IsNight)
         {
+            UISound.uiSound.PlaySound(0);
+
             if(StructObject.SelectStruct != structObject)
                 StructObject.SelectStruct = structObject;
             else

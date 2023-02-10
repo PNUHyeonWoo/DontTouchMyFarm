@@ -39,6 +39,7 @@ public class Crops : StructObject
         growth += seasonGrowth[(int)Day.GetSeason(day)];
         if (growth >= maxGrowth)
         {
+            UISound.uiSound.PlaySound(1);
             PlusMoney(saleCost);
             Dead();
         }
