@@ -5,6 +5,8 @@ using UnityEngine;
 using TMPro;
 public class Day : MonoBehaviour
 {
+
+    public static Day day;
     [SerializeField]
     private float NIGHT_TIME = 5.0f; //밤 지속 시간 상수
     [SerializeField]
@@ -34,8 +36,18 @@ public class Day : MonoBehaviour
     private GameObject bottomUI;
     private GameObject ground;
     private bool isNight = false;
+
+    public bool IsNight 
+    {
+        get { return isNight; }
+    }
+
     private int days = 1; // 현재 일수
 
+    private void Awake()
+    {
+        day = this;
+    }
 
     void Start()
     {
@@ -71,6 +83,7 @@ public class Day : MonoBehaviour
         sunLight.intensity = 0.2f;
 
         monsterSpawner.SpawnMonster(days);
+        StructObject.SelectStruct = null;
     }
 
     void UpdateDay() //밤이 끝나고 다음날이 될때 호출

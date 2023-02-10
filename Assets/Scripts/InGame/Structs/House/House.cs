@@ -12,7 +12,7 @@ public class House : StructObject
     protected override void Dead()
     {
         base.Dead();
-        Application.Quit(); // 게임 종료
+        GameManager.gameManager.GameOver(); // 게임 종료
     }
 
     new void Start()

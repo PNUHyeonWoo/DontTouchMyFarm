@@ -10,6 +10,9 @@ public class Ground : MonoBehaviour
     [SerializeField]
     private Vector2 numCells; // 그리드 xz셀 개수
 
+    [SerializeField]
+    private GameObject house;
+
     private Vector2 groundStartPos; //땅에서 xz가 가장 낮은 지점
     private Vector2 halfCellSize; //한 셀의 xz크기의 절반
     private bool[,] installTable; //현재 설치물이 설치된 그리드 셀 테이블
@@ -30,6 +33,12 @@ public class Ground : MonoBehaviour
 
         groundStartPos = new Vector2(transform.position.x - groundSize.x / 2, transform.position.z - groundSize.y / 2);
         halfCellSize = new Vector2(groundSize.x / numCells.x, groundSize.y / numCells.y) / 2;
+
+        //house설치
+        StructObject.SelectStruct = house;
+        InstallSelectStruct(new Vector2(0, 0));
+        StructObject.SelectStruct = null;
+
     }
 
 

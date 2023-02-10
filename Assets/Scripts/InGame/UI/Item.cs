@@ -13,7 +13,13 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnClickItem() // item 버튼 클릭시 호출
     {
-        StructObject.SelectStruct = structObject;
+        if (!Day.day.IsNight)
+        {
+            if(StructObject.SelectStruct != structObject)
+                StructObject.SelectStruct = structObject;
+            else
+                StructObject.SelectStruct = null;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
