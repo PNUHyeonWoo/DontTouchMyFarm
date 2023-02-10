@@ -22,8 +22,6 @@ public class TopUI : MonoBehaviour
 
     private void Awake()
     {
-        if (topUI)
-            return;
         topUI = this;
     }
 

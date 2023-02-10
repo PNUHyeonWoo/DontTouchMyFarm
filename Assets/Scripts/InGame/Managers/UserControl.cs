@@ -56,6 +56,8 @@ public class UserControl : MonoBehaviour
             {
                 if (!Ground.ground.InstallSelectStruct(new Vector2(hit.point.x, hit.point.z)))//ground에 적중시 해당 위치에 설치물 설치
                     TopUI.topUI.PlusMoney(StructObject.GetStructComponent().Cost);
+                else
+                    UISound.uiSound.PlaySound(2);
                 return;
             }
 
@@ -76,6 +78,7 @@ public class UserControl : MonoBehaviour
                 if (si is House)
                     return;
 
+                UISound.uiSound.PlaySound(1);
                 TopUI.topUI.PlusMoney((int)(si.Cost * sellRatio));
                 Ground.ground.DestroyStruct(si);
                 return;

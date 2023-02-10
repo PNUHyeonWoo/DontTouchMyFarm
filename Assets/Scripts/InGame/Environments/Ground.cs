@@ -19,8 +19,6 @@ public class Ground : MonoBehaviour
 
     private void Awake()
     {
-        if (ground)
-            return;
         ground = this;
     }
 

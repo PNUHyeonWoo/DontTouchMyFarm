@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour
     private int isPause = 0; // 0이면 진행, 1이상이면 일시정지 상태
     private void Awake()
     {
-        if (gameManager)
-            return;
         gameManager = this;
+        Time.timeScale = 1;
     }
 
     public bool GetPause() 

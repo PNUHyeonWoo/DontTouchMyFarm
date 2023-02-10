@@ -74,6 +74,8 @@ public class Day : MonoBehaviour
 
     public void OnClickNight() // 낮 스킵 버튼 클릭 시 호출
     {
+        UISound.uiSound.PlaySound(0);
+
         isNight = true;
         nightTimer.RemainTime = NIGHT_TIME;
 

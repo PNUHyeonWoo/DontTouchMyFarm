@@ -18,7 +18,8 @@ public class BottomUI : MonoBehaviour
 
     public void SetActivityList(int index) 
     {
-        for(int i = 0;i<StructLists.Length;i++)
+        UISound.uiSound.PlaySound(0);
+        for (int i = 0;i<StructLists.Length;i++)
             StructLists[i].SetActive(i==index);
     } 
 
