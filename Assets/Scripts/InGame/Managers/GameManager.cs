@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager = null;
+    [SerializeField]
+    private GameObject gameOverObject;
     private int isPause = 0; // 0이면 진행, 1이상이면 일시정지 상태
     private void Awake()
     {
@@ -35,6 +38,16 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 1;
 
+    }
+
+    public void GameOver() 
+    {
+        SetPause(true);
+        gameOverObject.SetActive(true);
+    }
+    public void ToMenu() 
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 
 }

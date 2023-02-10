@@ -73,6 +73,9 @@ public class UserControl : MonoBehaviour
             if (hit.transform.GetComponent<StructObject>()) // 처음 적중한 설치물 판매 및 파괴
             {
                 StructObject si = hit.transform.GetComponent<StructObject>();
+                if (si is House)
+                    return;
+
                 TopUI.topUI.PlusMoney((int)(si.Cost * sellRatio));
                 Ground.ground.DestroyStruct(si);
                 return;
