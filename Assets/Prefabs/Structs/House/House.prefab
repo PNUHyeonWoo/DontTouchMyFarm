@@ -61,9 +61,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 0
   size: 8
-  maxHP: 100
+  maxHP: 1000
   defence: 1
-  healAmount: 20
+  healAmount: 100
 --- !u!1001 &5602162289068131865
 PrefabInstance:
   m_ObjectHideFlags: 0

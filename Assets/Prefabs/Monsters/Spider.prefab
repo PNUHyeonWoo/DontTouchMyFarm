@@ -70,8 +70,8 @@ MonoBehaviour:
   sight: 20
   attackRange: 10
   maxHP: 100
-  attackSpeed: 1
-  attackDamage: 50
+  attackSpeed: 0.3
+  attackDamage: 5
   attackPriority: 1
   movePriority: 2
   rangeOffset: 0.8

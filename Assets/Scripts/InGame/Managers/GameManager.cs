@@ -9,10 +9,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverObject;
     private int isPause = 0; // 0이면 진행, 1이상이면 일시정지 상태
+    private float gameSpeed = 1.0f;
     private void Awake()
     {
         gameManager = this;
-        Time.timeScale = 1;
+        Time.timeScale = gameSpeed;
     }
 
     public bool GetPause() 
@@ -28,14 +29,14 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("invaild Pause");
             isPause = 0;
-            Time.timeScale = 1;
+            Time.timeScale = gameSpeed;
             return;
         }
 
         if (isPause > 0)
             Time.timeScale = 0;
         else
-            Time.timeScale = 1;
+            Time.timeScale = gameSpeed;
 
     }
 
@@ -47,6 +48,20 @@ public class GameManager : MonoBehaviour
     public void ToMenu() 
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void changeSpeed() 
+    {
+        if (gameSpeed == 1.0f)
+        {
+            gameSpeed = 3.0f;
+            Time.timeScale = gameSpeed;
+        }
+        else if (gameSpeed == 3.0f)
+        {
+            gameSpeed = 1.0f;
+            Time.timeScale = gameSpeed;
+        }
     }
 
 }

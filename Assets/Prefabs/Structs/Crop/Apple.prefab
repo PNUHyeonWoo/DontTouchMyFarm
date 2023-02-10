@@ -62,18 +62,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46025874bec800c42b900b302400e026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1
+  cost: 3
   size: 2
   maxHP: 5
   defence: 0
   healAmount: 0
-  maxGrowth: 10
+  maxGrowth: 100
   seasonGrowth:
-  - 3
-  - 3
-  - 3
-  - 3
-  saleCost: 5
+  - 30
+  - 30
+  - 30
+  - 15
+  saleCost: 15
 --- !u!1001 &634610392946384672
 PrefabInstance:
   m_ObjectHideFlags: 0

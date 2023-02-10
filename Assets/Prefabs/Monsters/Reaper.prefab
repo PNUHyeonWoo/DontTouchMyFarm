@@ -68,10 +68,10 @@ MonoBehaviour:
   - House
   - Wall
   sight: 20
-  attackRange: 10
-  maxHP: 100
-  attackSpeed: 1
-  attackDamage: 50
+  attackRange: 5
+  maxHP: 500
+  attackSpeed: 3
+  attackDamage: 200
   attackPriority: 1
   movePriority: 2
   rangeOffset: 0.8
