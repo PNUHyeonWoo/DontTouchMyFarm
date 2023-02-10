@@ -10,6 +10,9 @@ public class UserControl : MonoBehaviour
     private const float sellRatio = 0.5f;
     private GameObject installFloor;
 
+    private const float zoomSpeed = 30;
+    private const float rotateSpeed = 1;
+
     private void Start()
     {
         installFloor = GameObject.Find("InstallFloor");
@@ -34,9 +37,14 @@ public class UserControl : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
-            RotateCamera(-Time.deltaTime);
+            RotateCamera(-Time.deltaTime * rotateSpeed);
         if (Input.GetKey(KeyCode.RightArrow))
-            RotateCamera(Time.deltaTime);
+            RotateCamera(Time.deltaTime * rotateSpeed);
+        if (Input.GetKey(KeyCode.UpArrow))
+            ZoomCamera(-Time.deltaTime * zoomSpeed);
+        if (Input.GetKey(KeyCode.DownArrow))
+            ZoomCamera(Time.deltaTime * zoomSpeed);
+
     }
 
 
@@ -125,5 +133,14 @@ public class UserControl : MonoBehaviour
         z = lookAt.z;
         lookAt = new Vector3((float)(x * Math.Cos(r) - z * Math.Sin(r)), y,(float)(x * Math.Sin(r) + z * Math.Cos(r)));
         Camera.main.transform.LookAt(lookAt);
+    }
+
+    void ZoomCamera(float d)
+    {
+        Vector3 lookAt = Camera.main.transform.rotation * Vector3.forward;
+        Vector3 result = Camera.main.transform.position - lookAt * d;
+        if (result.y > 35 || result.y < 10)
+            return;
+        Camera.main.transform.position = result;
     }
 }

@@ -26,6 +26,9 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (InspectorObject != null)
+            Destroy(InspectorObject);
+
         InspectorObject = Instantiate(BottomUI.bottomUI.inspectorPrefab);
         RectTransform rt = InspectorObject.GetComponent<RectTransform>();
         rt.SetParent(BottomUI.bottomUI.transform);
