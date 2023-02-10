@@ -12,6 +12,8 @@ public abstract class Monster : MonoBehaviour
     
     [SerializeField]
     protected GameObject attackTarget = null;
+    [SerializeField]
+    protected GameObject attackEffect;
 
     [SerializeField]
     protected string[] priority;
@@ -27,26 +29,12 @@ public abstract class Monster : MonoBehaviour
     [SerializeField]
     protected float attackDamage;
 
-    /*
-    private NightTimer timer;
-
-    public NightTimer Timer {
-        set { timer = value; }
-    }
-    */
-
     protected virtual void Start() {
         HP = maxHP;
         attackDelay = initAttackDelay;
     }
 
     private void Update() {
-        /*
-        if(timer.RemainTime <= 0) {
-            Dead();
-        }
-        */
-
         AttackCheck();
 
         if (isAttack) {
@@ -72,6 +60,8 @@ public abstract class Monster : MonoBehaviour
             }
             else {
                 attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
+                GameObject attackObejct = Instantiate(attackEffect);
+                attackObejct.transform.position = attackTarget.transform.position;
             }
         }
     }
