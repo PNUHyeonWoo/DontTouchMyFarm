@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5854989891762001949}
-  - component: {fileID: 5061333211195749348}
   - component: {fileID: 8757406895665343194}
+  - component: {fileID: -7035634620037710738}
   m_Layer: 11
   m_Name: WoodWall
   m_TagString: Struct
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5061333211195749348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998613733476095315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b779a08e5fb2442b92c1c057bf9b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0
-  size: 2
-  maxHP: 10
-  defence: 0
-  healAmount: 0
 --- !u!65 &8757406895665343194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,6 +47,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-7035634620037710738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998613733476095315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0317f14434bb9cd4db841088567240b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 3
+  size: 2
+  maxHP: 100
+  defence: 1
+  healAmount: 25
 --- !u!1001 &8414581356378995457
 PrefabInstance:
   m_ObjectHideFlags: 0

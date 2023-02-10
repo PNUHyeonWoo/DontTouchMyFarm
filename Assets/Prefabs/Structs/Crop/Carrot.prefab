@@ -66,14 +66,14 @@ MonoBehaviour:
   size: 2
   maxHP: 5
   defence: 0
-  healAmount: 0
-  maxGrowth: 10
+  healAmount: 5
+  maxGrowth: 100
   seasonGrowth:
-  - 0
-  - 0
-  - 0
-  - 0
-  saleCost: 0
+  - 50
+  - 50
+  - 50
+  - 25
+  saleCost: 5
 --- !u!1001 &820702425463366966
 PrefabInstance:
   m_ObjectHideFlags: 0
