@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTarget: {fileID: 0}
+  attackEffect: {fileID: 4438823971618521358, guid: e2323d709e9e7ee439ebec04f7aaa888, type: 3}
   priority:
   - Crop
   - Turret
