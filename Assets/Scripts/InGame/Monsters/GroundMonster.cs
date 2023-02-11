@@ -12,8 +12,6 @@ public class GroundMonster : Monster
     protected int attackPriority;
     [SerializeField]
     protected int movePriority;
-    [SerializeField]
-    protected float rangeOffset;
 
     protected override void Start() {
         base.Start();
@@ -23,11 +21,17 @@ public class GroundMonster : Monster
 
     protected override void AttackCheck() {
         if (attackTarget != null) {
-            if (Vector3.Distance(transform.position, attackTarget.transform.position) <= attackRange + (attackTarget.transform.lossyScale.x * rangeOffset)) {
+            float range = attackRange + (attackTarget.GetComponent<StructObject>().Size * rangeOffset);
+            if (Mathf.Abs(transform.position.x - attackTarget.transform.position.x) < range
+                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range) 
+            {
                 AttackStart();
             }
-            else {
+            else if (isAttack) {
                 AttackEnd();
+            }
+            else if (agent.velocity == Vector3.zero) {
+                attackTarget = null;
             }
         }
     }
@@ -41,7 +45,11 @@ public class GroundMonster : Monster
                     agent.CalculatePath(sightHit[j].transform.position, path);
                     agent.SetPath(path);
 
-                    if (Vector3.Distance(sightHit[j].collider.transform.position, agent.pathEndPosition) < attackRange + (sightHit[j].collider.transform.lossyScale.x * rangeOffset)) {
+                    float range = attackRange + (sightHit[j].collider.GetComponent<StructObject>().Size * rangeOffset);
+
+                    if (Mathf.Abs(sightHit[j].collider.transform.position.x - agent.pathEndPosition.x) < range
+                        && Mathf.Abs(sightHit[j].collider.transform.position.z - agent.pathEndPosition.z) < range) 
+                    {
                         attackTarget = sightHit[j].collider.gameObject;
                         break;
                     }

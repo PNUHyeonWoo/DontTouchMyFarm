@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyingMonster : Monster
 {
- [SerializeField]
+    [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private float rotationSpeed;
@@ -14,11 +14,17 @@ public class FlyingMonster : Monster
     protected override void Start() {
         base.Start();
         rigid = GetComponent<Rigidbody>();
+        Vector3 ranPos = Random.insideUnitSphere * 5;
+        ranPos.y = transform.position.y;
+        transform.position += ranPos;
     }
 
     protected override void AttackCheck() {
         if (attackTarget != null) {
-            if (Vector3.Distance(transform.position, new Vector3(attackTarget.transform.position.x, transform.position.y, attackTarget.transform.position.z)) <= attackRange) {
+            float range = attackRange + (attackTarget.GetComponent<StructObject>().Size * rangeOffset);
+            if (Mathf.Abs(transform.position.x - attackTarget.transform.position.x) < range 
+                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range) 
+            {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
                 AttackStart();
             }

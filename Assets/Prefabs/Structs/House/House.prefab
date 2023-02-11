@@ -62,7 +62,7 @@ MonoBehaviour:
   cost: 0
   size: 8
   maxHP: 1000
-  defence: 1
+  defence: 1000
   healAmount: 100
 --- !u!1001 &5602162289068131865
 PrefabInstance:

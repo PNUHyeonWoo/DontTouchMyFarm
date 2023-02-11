@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b676c000ead3dff4c9bad5b01301b2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSpeed: 0.3
   attackTarget: {fileID: 0}
   attackEffect: {fileID: 4438823971618521358, guid: e2323d709e9e7ee439ebec04f7aaa888, type: 3}
   priority:
@@ -69,12 +70,11 @@ MonoBehaviour:
   - Wall
   sight: 20
   attackRange: 10
+  rangeOffset: 0.5
   maxHP: 100
-  attackSpeed: 0.3
   attackDamage: 5
   attackPriority: 1
   movePriority: 2
-  rangeOffset: 0.8
 --- !u!195 &3906157988484313492
 NavMeshAgent:
   m_ObjectHideFlags: 0
