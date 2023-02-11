@@ -6,9 +6,11 @@ public abstract class Monster : MonoBehaviour
 {
     public static int totalAmount = 0;
 
-    private bool isAttack = false;
-    private float initAttackDelay = 100;
+    [SerializeField]
+    private float attackSpeed;
     private float attackDelay;
+    private float checkSpeed = 0.5f;
+    private float checkDelay;
     
     [SerializeField]
     protected GameObject attackTarget = null;
@@ -16,26 +18,32 @@ public abstract class Monster : MonoBehaviour
     protected GameObject attackEffect;
 
     [SerializeField]
+    protected bool isAttack = false;
+    [SerializeField]
     protected string[] priority;
     [SerializeField]
     protected float sight;
     [SerializeField]
     protected float attackRange;
     [SerializeField]
+    protected float rangeOffset;
+    [SerializeField]
     protected float maxHP;
     protected float HP;
-    [SerializeField]
-    protected float attackSpeed;
+    
     [SerializeField]
     protected float attackDamage;
 
     protected virtual void Start() {
         HP = maxHP;
-        attackDelay = initAttackDelay;
     }
 
     private void Update() {
-        AttackCheck();
+        checkDelay += Time.deltaTime;
+        if (checkDelay > checkSpeed) {
+            checkDelay = 0;
+            AttackCheck();
+        }
 
         if (isAttack) {
             Attack();
@@ -68,7 +76,6 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void AttackEnd() {
         isAttack = false;
-        attackDelay = initAttackDelay;
     }
 
     protected virtual void AttackStart() {
