@@ -11,6 +11,8 @@ public abstract class Turret :StructObject
     [SerializeField]
     protected float attackRange;
 
+    private const float FindHeight = 10;
+
     public float AttackPower
     { 
         get { return attackPower; }
@@ -74,7 +76,7 @@ public abstract class Turret :StructObject
         if (findCoolTime <= 0 && target == null)
         {
             int layerMask = 1 << LayerMask.NameToLayer("Monster");
-            Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, layerMask);
+            Collider[] hits = Physics.OverlapCapsule(transform.position+ new Vector3(0,FindHeight+attackRange,0), transform.position + new Vector3(0,-attackRange,0), attackRange, layerMask);
             foreach (Collider hit in hits)
             {
                 Monster mHit = hit.transform.GetComponent<Monster>();
