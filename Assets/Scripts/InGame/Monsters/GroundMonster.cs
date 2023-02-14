@@ -9,9 +9,7 @@ public class GroundMonster : Monster
     protected NavMeshPath path;
 
     [SerializeField]
-    protected int attackPriority;
-    [SerializeField]
-    protected int movePriority;
+    private GameObject childrenObject;
 
     protected override void Start() {
         base.Start();
@@ -37,6 +35,8 @@ public class GroundMonster : Monster
     }
 
     protected override void Move() {
+        childrenObject.transform.localRotation = Quaternion.Lerp(childrenObject.transform.localRotation, Quaternion.identity, rotationSpeed * Time.deltaTime);
+
         if (attackTarget == null) {
             for (int i = 0; i < priority.Length; i++) {
                 RaycastHit[] sightHit = Physics.SphereCastAll(transform.position, sight, Vector3.up, 0f, LayerMask.GetMask(priority[i]));
@@ -67,16 +67,26 @@ public class GroundMonster : Monster
         }
     }
 
+    protected override void Attack()
+    {
+        base.Attack();
+        if (attackTarget != null) {
+            Vector3 rotationTarget = attackTarget.transform.position - transform.position;
+            rotationTarget.y = 0;
+            childrenObject.transform.rotation = Quaternion.Lerp(childrenObject.transform.rotation, Quaternion.LookRotation(rotationTarget), rotationSpeed * Time.deltaTime);
+        }
+    }
+
     protected override void AttackStart() {
         base.AttackStart();
         agent.isStopped = true;
-        agent.avoidancePriority = attackPriority;
+        agent.avoidancePriority = 1;
         agent.velocity = Vector3.zero;
     }
 
     protected override void AttackEnd() {
         base.AttackEnd();
         agent.isStopped = false;
-        agent.avoidancePriority = movePriority;
+        agent.avoidancePriority = 50;
     }
 }

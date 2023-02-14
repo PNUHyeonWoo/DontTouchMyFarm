@@ -63,6 +63,7 @@ MonoBehaviour:
   attackSpeed: 0.3
   attackTarget: {fileID: 0}
   attackEffect: {fileID: 4438823971618521358, guid: e2323d709e9e7ee439ebec04f7aaa888, type: 3}
+  isAttack: 0
   priority:
   - Crop
   - Turret
@@ -73,8 +74,8 @@ MonoBehaviour:
   rangeOffset: 0.5
   maxHP: 100
   attackDamage: 5
-  attackPriority: 1
-  movePriority: 2
+  rotationSpeed: 4
+  childrenObject: {fileID: 621564816840739333}
 --- !u!195 &3906157988484313492
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -130,7 +131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -142,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -169,5 +170,10 @@ PrefabInstance:
 --- !u!4 &282580282150490303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
+  m_PrefabInstance: {fileID: 315626054907688788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &621564816840739333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2adee5bdeeac185449b04f0bf4970ae4, type: 3}
   m_PrefabInstance: {fileID: 315626054907688788}
   m_PrefabAsset: {fileID: 0}
