@@ -30,9 +30,10 @@ public abstract class Monster : MonoBehaviour
     [SerializeField]
     protected float maxHP;
     protected float HP;
-    
     [SerializeField]
     protected float attackDamage;
+    [SerializeField]
+    protected float rotationSpeed;
 
     protected virtual void Start() {
         HP = maxHP;
@@ -57,7 +58,7 @@ public abstract class Monster : MonoBehaviour
 
     protected abstract void Move();
 
-    protected void Attack() {
+    protected virtual void Attack() {
         attackDelay += Time.deltaTime;
 
         if (attackDelay > attackSpeed) {

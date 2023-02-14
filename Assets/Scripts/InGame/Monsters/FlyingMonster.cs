@@ -6,9 +6,7 @@ public class FlyingMonster : Monster
 {
     [SerializeField]
     private float moveSpeed;
-    [SerializeField]
-    private float rotationSpeed;
-
+    
     private Rigidbody rigid;
 
     protected override void Start() {
@@ -23,12 +21,12 @@ public class FlyingMonster : Monster
         if (attackTarget != null) {
             float range = attackRange + (attackTarget.GetComponent<StructObject>().Size * rangeOffset);
             if (Mathf.Abs(transform.position.x - attackTarget.transform.position.x) < range 
-                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range) 
+                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range
+                && !isAttack) 
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
                 AttackStart();
             }
-            else {
+            else if (isAttack) {
                 AttackEnd();
             }
         }
@@ -57,5 +55,11 @@ public class FlyingMonster : Monster
         destination.y = transform.position.y;
         transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destination - transform.position), rotationSpeed * Time.deltaTime);
+    }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
     }
 }
