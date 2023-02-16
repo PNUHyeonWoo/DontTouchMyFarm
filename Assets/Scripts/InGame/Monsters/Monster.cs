@@ -16,6 +16,8 @@ public abstract class Monster : MonoBehaviour
     protected GameObject attackTarget = null;
     [SerializeField]
     protected GameObject attackEffect;
+    [SerializeField]
+    protected Animator anim;
 
     [SerializeField]
     protected bool isAttack = false;
@@ -37,6 +39,7 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void Start() {
         HP = maxHP;
+        AttackEnd();
     }
 
     private void Update() {
@@ -63,6 +66,7 @@ public abstract class Monster : MonoBehaviour
 
         if (attackDelay > attackSpeed) {
             attackDelay = 0;
+            anim.SetTrigger("doAttack");
 
             if (attackTarget == null) {
                 AttackEnd();
@@ -77,10 +81,12 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void AttackEnd() {
         isAttack = false;
+        anim.SetBool("isMoving", true);
     }
 
     protected virtual void AttackStart() {
         isAttack = true;
+        anim.SetBool("isMoving", false);
     }
 
     public float AddHP(float value) {

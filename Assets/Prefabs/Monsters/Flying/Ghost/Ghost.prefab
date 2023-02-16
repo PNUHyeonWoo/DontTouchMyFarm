@@ -63,6 +63,7 @@ MonoBehaviour:
   attackSpeed: 1
   attackTarget: {fileID: 0}
   attackEffect: {fileID: 8460685794475287515, guid: a3fe93e500218274fa01986bb359559c, type: 3}
+  anim: {fileID: 3036653210063864488}
   isAttack: 0
   priority:
   - Turret
@@ -70,7 +71,7 @@ MonoBehaviour:
   - House
   - Wall
   sight: 30
-  attackRange: 1
+  attackRange: 1.5
   rangeOffset: 0.5
   maxHP: 40
   attackDamage: 20
@@ -182,3 +183,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 38689cbe2d34cdf46a9565c26f0c9173, type: 3}
   m_PrefabInstance: {fileID: 3885705915736986505}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4120130793340022488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 38689cbe2d34cdf46a9565c26f0c9173, type: 3}
+  m_PrefabInstance: {fileID: 3885705915736986505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3036653210063864488
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120130793340022488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c47789ff0529514ea3c6ec0e1db73e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

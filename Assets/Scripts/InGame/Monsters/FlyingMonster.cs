@@ -21,10 +21,11 @@ public class FlyingMonster : Monster
         if (attackTarget != null) {
             float range = attackRange + (attackTarget.GetComponent<StructObject>().Size * rangeOffset);
             if (Mathf.Abs(transform.position.x - attackTarget.transform.position.x) < range 
-                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range
-                && !isAttack) 
+                && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range) 
             {
-                AttackStart();
+                if (!isAttack) {
+                    AttackStart();
+                }
             }
             else if (isAttack) {
                 AttackEnd();
@@ -60,6 +61,9 @@ public class FlyingMonster : Monster
     protected override void Attack()
     {
         base.Attack();
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
+
+        if (attackTarget != null) {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
+        }
     }
 }
