@@ -23,7 +23,9 @@ public class GroundMonster : Monster
             if (Mathf.Abs(transform.position.x - attackTarget.transform.position.x) < range
                 && Mathf.Abs(transform.position.z - attackTarget.transform.position.z) < range) 
             {
-                AttackStart();
+                if (!isAttack) {
+                    AttackStart();
+                }
             }
             else if (isAttack) {
                 AttackEnd();

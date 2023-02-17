@@ -16,6 +16,8 @@ public abstract class Monster : MonoBehaviour
     protected GameObject attackTarget = null;
     [SerializeField]
     protected GameObject attackEffect;
+    [SerializeField]
+    protected Animator anim;
 
     [SerializeField]
     protected bool isAttack = false;
@@ -37,6 +39,7 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void Start() {
         HP = maxHP;
+        AttackEnd();
     }
 
     private void Update() {
@@ -69,6 +72,7 @@ public abstract class Monster : MonoBehaviour
             }
             else {
                 attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
+                anim.SetTrigger("doAttack");
                 GameObject attackObejct = Instantiate(attackEffect);
                 attackObejct.transform.position = attackTarget.transform.position;
             }
@@ -77,10 +81,12 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void AttackEnd() {
         isAttack = false;
+        anim.SetBool("isMoving", true);
     }
 
     protected virtual void AttackStart() {
         isAttack = true;
+        anim.SetBool("isMoving", false);
     }
 
     public float AddHP(float value) {
