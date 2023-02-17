@@ -10404,12 +10404,12 @@ MonoBehaviour:
   leftPosition: {fileID: 1265773087}
   nightSpawns:
   - front:
-    - monster: {fileID: 998613733476095315, guid: fb43f1cfb60bd414ca1a47b04a073397, type: 3}
-      amount: 1
+    - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
+      amount: 3
     back: []
     right: []
     left: []
-    isAllSideSpawnWithFront: 0
+    isAllSideSpawnWithFront: 1
   - front:
     - monster: {fileID: 998613733476095315, guid: 80de54612ae8fba4aad01c199c0d4a5b, type: 3}
       amount: 3

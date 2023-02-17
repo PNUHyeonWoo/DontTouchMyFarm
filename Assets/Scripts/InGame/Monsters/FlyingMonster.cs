@@ -27,9 +27,6 @@ public class FlyingMonster : Monster
                     AttackStart();
                 }
             }
-            else if (isAttack) {
-                AttackEnd();
-            }
         }
     }
 
@@ -61,9 +58,11 @@ public class FlyingMonster : Monster
     protected override void Attack()
     {
         base.Attack();
-
+        
         if (attackTarget != null) {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(attackTarget.transform.position - transform.position), rotationSpeed * Time.deltaTime);
+            Vector3 destination = attackTarget.transform.position - transform.position;
+            destination.y = -1f;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destination), rotationSpeed * Time.deltaTime);
         }
     }
 }

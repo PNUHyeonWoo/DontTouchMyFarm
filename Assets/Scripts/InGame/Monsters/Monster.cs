@@ -66,13 +66,13 @@ public abstract class Monster : MonoBehaviour
 
         if (attackDelay > attackSpeed) {
             attackDelay = 0;
-            anim.SetTrigger("doAttack");
 
             if (attackTarget == null) {
                 AttackEnd();
             }
             else {
                 attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
+                anim.SetTrigger("doAttack");
                 GameObject attackObejct = Instantiate(attackEffect);
                 attackObejct.transform.position = attackTarget.transform.position;
             }

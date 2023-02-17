@@ -63,6 +63,7 @@ MonoBehaviour:
   attackSpeed: 2
   attackTarget: {fileID: 0}
   attackEffect: {fileID: 8460685794475287515, guid: a3fe93e500218274fa01986bb359559c, type: 3}
+  anim: {fileID: 8507203392755658279}
   isAttack: 0
   priority:
   - Turret
@@ -182,3 +183,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c03561f559aa19942ad2a0c525735f38, type: 3}
   m_PrefabInstance: {fileID: 536235526854338070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &842312283938216775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c03561f559aa19942ad2a0c525735f38, type: 3}
+  m_PrefabInstance: {fileID: 536235526854338070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8507203392755658279
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842312283938216775}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c84e28e585983a647b1842ff0b0cd7fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
