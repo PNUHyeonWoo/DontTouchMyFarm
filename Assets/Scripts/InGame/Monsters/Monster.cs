@@ -39,7 +39,7 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void Start() {
         HP = maxHP;
-        AttackEnd();
+        anim.SetBool("isMoving", true);
     }
 
     private void Update() {
@@ -69,6 +69,7 @@ public abstract class Monster : MonoBehaviour
 
             if (attackTarget == null) {
                 AttackEnd();
+                anim.SetBool("isMoving", true);
             }
             else {
                 attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
@@ -81,7 +82,6 @@ public abstract class Monster : MonoBehaviour
 
     protected virtual void AttackEnd() {
         isAttack = false;
-        anim.SetBool("isMoving", true);
     }
 
     protected virtual void AttackStart() {
