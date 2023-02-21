@@ -90,7 +90,7 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //rt.sizeDelta = txt.GetComponent<RectTransform>().sizeDelta;
         //txt.GetComponent<RectTransform>().sizeDelta = new Vector2(txt.preferredWidth, txt.preferredHeight);
 
-        rt.position = new Vector3(2000,2000, 0);
+        rt.position = new Vector3(5000,5000, 0);
     }
 
     public void OnPointerExit(PointerEventData eventData)
