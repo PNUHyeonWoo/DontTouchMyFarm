@@ -8,6 +8,8 @@ public abstract class Monster : MonoBehaviour
 
     [SerializeField]
     private float attackSpeed;
+    [SerializeField]
+    private float attackAnimationDelay;
     private float attackDelay;
     private float checkSpeed = 0.5f;
     private float checkDelay;
@@ -19,8 +21,8 @@ public abstract class Monster : MonoBehaviour
     [SerializeField]
     protected Animator anim;
 
-    [SerializeField]
     protected bool isAttack = false;
+    protected bool isAttackAnimation = false;
     [SerializeField]
     protected string[] priority;
     [SerializeField]
@@ -64,8 +66,14 @@ public abstract class Monster : MonoBehaviour
     protected virtual void Attack() {
         attackDelay += Time.deltaTime;
 
+        if (!isAttackAnimation && attackDelay > (attackSpeed - attackAnimationDelay)) {
+            if (attackTarget != null) anim.SetTrigger("doAttack");
+            isAttackAnimation = true;
+        }
+
         if (attackDelay > attackSpeed) {
             attackDelay = 0;
+            isAttackAnimation = false;
 
             if (attackTarget == null) {
                 AttackEnd();
@@ -73,7 +81,6 @@ public abstract class Monster : MonoBehaviour
             }
             else {
                 attackTarget.GetComponent<StructObject>().AddHP(-attackDamage);
-                anim.SetTrigger("doAttack");
                 GameObject attackObejct = Instantiate(attackEffect);
                 attackObejct.transform.position = attackTarget.transform.position;
             }
