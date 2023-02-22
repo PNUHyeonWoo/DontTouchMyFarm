@@ -61,10 +61,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
+  attackAnimationSpeed: 0.2
+  attackAnimationDelay: 0.2
   attackTarget: {fileID: 0}
   attackEffect: {fileID: 8460685794475287515, guid: a3fe93e500218274fa01986bb359559c, type: 3}
   anim: {fileID: 3036653210063864488}
-  isAttack: 0
   priority:
   - Turret
   - Crop
