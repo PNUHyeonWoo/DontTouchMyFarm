@@ -36,7 +36,7 @@ public class Crops : StructObject
     public override void UpdateDay(int day)
     {
         base.UpdateDay(day);
-        growth += seasonGrowth[(int)Day.GetSeason(day)];
+        growth += seasonGrowth[Day.day.Season];
         if (growth >= maxGrowth)
         {
             UISound.uiSound.PlaySound(1);

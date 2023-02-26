@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10478,10 +10478,26 @@ MonoBehaviour:
     right: []
     left: []
     isAllSideSpawnWithFront: 0
-  - front: []
-    back: []
-    right: []
-    left: []
+  - front:
+    - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
+      amount: 10
+    - monster: {fileID: 998613733476095315, guid: b87e047147bd9cc4bb8e48f6f432c16f, type: 3}
+      amount: 5
+    back:
+    - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
+      amount: 10
+    - monster: {fileID: 998613733476095315, guid: b87e047147bd9cc4bb8e48f6f432c16f, type: 3}
+      amount: 5
+    right:
+    - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
+      amount: 5
+    - monster: {fileID: 998613733476095315, guid: b87e047147bd9cc4bb8e48f6f432c16f, type: 3}
+      amount: 5
+    left:
+    - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
+      amount: 5
+    - monster: {fileID: 998613733476095315, guid: b87e047147bd9cc4bb8e48f6f432c16f, type: 3}
+      amount: 5
     isAllSideSpawnWithFront: 0
   - front:
     - monster: {fileID: 998613733476095315, guid: 9568eb0e9be88bd4cb0a27f002090224, type: 3}
